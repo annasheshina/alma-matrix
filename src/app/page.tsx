@@ -1,4 +1,5 @@
 import Link from "next/link";
+import DiaryEntryLink from "@/components/DiaryEntryLink";
 
 export default function Landing() {
   return (
@@ -37,6 +38,8 @@ export default function Landing() {
             Начать путешествие
           </Link>
         </div>
+
+        <DiaryEntryLink />
 
         <p
           className="anim-fade-up mt-16 text-[10px] tracking-[0.18em] uppercase sm:text-xs sm:tracking-[0.25em]"
