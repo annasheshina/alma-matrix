@@ -55,7 +55,7 @@ export default function DiaryView() {
             <h1 className="font-display mt-4 text-4xl sm:text-5xl">Мой путь</h1>
           </div>
           <Link
-            href={finished ? "/play" : "/play"}
+            href="/play"
             className="text-[11px] uppercase tracking-[0.25em] underline-offset-4 hover:underline"
             style={{ color: "var(--ink-dim)" }}
           >
@@ -162,6 +162,7 @@ export default function DiaryView() {
           </section>
         )}
 
+        {entries.length > 0 && (
         <footer className="mt-20 pb-6 text-center">
           <button
             className="text-[11px] uppercase tracking-[0.25em] cursor-pointer"
@@ -175,6 +176,7 @@ export default function DiaryView() {
             начать путь заново
           </button>
         </footer>
+        )}
       </div>
     </main>
   );

@@ -39,7 +39,7 @@ export default function Landing() {
         </div>
 
         <p
-          className="anim-fade-up mt-16 text-xs tracking-[0.25em] uppercase"
+          className="anim-fade-up mt-16 text-[10px] tracking-[0.18em] uppercase sm:text-xs sm:tracking-[0.25em]"
           style={{ color: "var(--ink-dim)", animationDelay: "1.2s" }}
         >
           Персонаж&nbsp;&nbsp;·&nbsp;&nbsp;Наблюдатель&nbsp;&nbsp;·&nbsp;&nbsp;Создатель&nbsp;&nbsp;·&nbsp;&nbsp;Поток
