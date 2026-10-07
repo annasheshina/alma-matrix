@@ -13,10 +13,12 @@ export default function CardScene({
   card,
   sacred = false,
   onComplete,
+  onClose,
 }: {
   card: GameCard;
   sacred?: boolean;
   onComplete: (answer: string, insight: string) => void;
+  onClose?: () => void;
 }) {
   const [step, setStep] = useState<Step>("closed");
   const [answer, setAnswer] = useState("");
@@ -213,6 +215,16 @@ export default function CardScene({
             </motion.div>
           )}
         </AnimatePresence>
+
+        {onClose && step !== "closing" && (
+          <button
+            onClick={onClose}
+            className="mt-8 text-[11px] uppercase tracking-[0.25em] cursor-pointer underline-offset-4 hover:underline"
+            style={{ color: "var(--ink-dim)" }}
+          >
+            не сейчас — вернуться
+          </button>
+        )}
       </div>
     </motion.div>
   );

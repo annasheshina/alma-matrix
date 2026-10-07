@@ -191,18 +191,21 @@ export default function GameBoard() {
             onComplete={(answer, insight) =>
               dispatch({ type: "complete_card", answer, insight })
             }
+            onClose={() => dispatch({ type: "cancel_turn" })}
           />
         )}
         {phase === "silence" && (
           <SilenceScene
             key="silence"
             onComplete={() => dispatch({ type: "complete_silence" })}
+            onClose={() => dispatch({ type: "cancel_turn" })}
           />
         )}
         {phase === "flow" && (
           <FlowScene
             key="flow"
             onComplete={(text) => dispatch({ type: "complete_flow", text })}
+            onClose={() => dispatch({ type: "cancel_turn" })}
           />
         )}
         {phase === "well" && (
@@ -224,6 +227,7 @@ export default function GameBoard() {
             onComplete={(answer, insight) =>
               dispatch({ type: "complete_higher", answer, insight })
             }
+            onClose={() => dispatch({ type: "cancel_turn" })}
           />
         )}
         {ceremonyOpen && advance?.to && (

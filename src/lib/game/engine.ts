@@ -13,7 +13,21 @@ import type {
 
 export function drawCubeFace(state: GameState): CubeFaceId {
   const rng = mulberry32(state.seed + state.diary.length * 7919 + state.tokensEarned * 131);
-  return CUBE_FACE_ORDER[Math.floor(rng() * CUBE_FACE_ORDER.length)];
+  // Пока игроку нужна программа для перехода, Зеркало выпадает чаще —
+  // иначе случай может надолго заблокировать единственный путь вперёд.
+  const needsProgram =
+    LEVELS[state.level].transitionTo?.requirement === "program_named" &&
+    !state.flags.programNamed;
+  const weights = CUBE_FACE_ORDER.map((f) =>
+    needsProgram && f === "mirror" ? 3 : 1,
+  );
+  const total = weights.reduce((a, b) => a + b, 0);
+  let r = rng() * total;
+  for (let i = 0; i < CUBE_FACE_ORDER.length; i++) {
+    r -= weights[i];
+    if (r < 0) return CUBE_FACE_ORDER[i];
+  }
+  return CUBE_FACE_ORDER[0];
 }
 
 /** Pick a card preferring unseen ones; reshuffles when the deck is exhausted. */

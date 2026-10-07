@@ -7,8 +7,10 @@ const DURATION = 60;
 
 export default function SilenceScene({
   onComplete,
+  onClose,
 }: {
   onComplete: () => void;
+  onClose?: () => void;
 }) {
   const [left, setLeft] = useState(DURATION);
   const [started, setStarted] = useState(false);
@@ -49,6 +51,15 @@ export default function SilenceScene({
           <button className="btn-quiet mt-10" onClick={() => setStarted(true)}>
             Войти в тишину
           </button>
+          {onClose && (
+            <button
+              onClick={onClose}
+              className="mt-8 text-[11px] uppercase tracking-[0.25em] cursor-pointer underline-offset-4 hover:underline"
+              style={{ color: "var(--ink-dim)" }}
+            >
+              вернуться на поле
+            </button>
+          )}
         </>
       ) : left > 0 ? (
         <>
@@ -66,6 +77,15 @@ export default function SilenceScene({
           <p className="mt-10 text-sm" style={{ color: "var(--ink-dim)" }}>
             вдох&nbsp;·&nbsp;выдох
           </p>
+          {onClose && (
+            <button
+              onClick={onClose}
+              className="mt-8 text-[11px] uppercase tracking-[0.25em] cursor-pointer underline-offset-4 hover:underline"
+              style={{ color: "var(--ink-dim)" }}
+            >
+              закончить раньше
+            </button>
+          )}
         </>
       ) : (
         <motion.div

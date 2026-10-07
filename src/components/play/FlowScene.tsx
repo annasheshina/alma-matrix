@@ -6,8 +6,10 @@ import AnswerField from "./AnswerField";
 
 export default function FlowScene({
   onComplete,
+  onClose,
 }: {
   onComplete: (text: string) => void;
+  onClose?: () => void;
 }) {
   const [text, setText] = useState("");
 
@@ -42,6 +44,17 @@ export default function FlowScene({
         >
           Сделать шаг
         </button>
+        {onClose && (
+          <div>
+            <button
+              onClick={onClose}
+              className="mt-8 text-[11px] uppercase tracking-[0.25em] cursor-pointer underline-offset-4 hover:underline"
+              style={{ color: "var(--ink-dim)" }}
+            >
+              не сейчас — вернуться
+            </button>
+          </div>
+        )}
       </div>
     </motion.div>
   );

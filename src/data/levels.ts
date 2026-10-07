@@ -9,7 +9,7 @@ export const LEVELS: Record<LevelId, LevelMeta> = {
     transitionTo: {
       cost: 3,
       requirement: "program_named",
-      requirementHint: "признай хотя бы одну программу (карта Программ с инсайтом)",
+      requirementHint: "признай хотя бы одну программу — её карта открывается на грани 👁 Зеркало",
       ceremonyQuestion: "Какая программа теряет над тобой власть прямо сейчас?",
       ceremonyHint: "Назови её вслух — или запиши здесь. Названная программа уже не управляет тенью.",
     },
