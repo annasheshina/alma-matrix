@@ -158,6 +158,12 @@ body {
   color: var(--ink-dim);
 }
 
+:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
 /* ————— motion ————— */
 
 @keyframes breathe {

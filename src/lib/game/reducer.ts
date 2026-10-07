@@ -314,7 +314,7 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
       return { ...state, turn: idleTurn };
 
     case "reset":
-      return freshState(newSeed(), Date.now());
+      return { ...freshState(newSeed(), Date.now()), hydrated: true };
 
     default:
       return state;
